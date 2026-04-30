@@ -1,65 +1,516 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Startup Business</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Startup Business | Mobile Apps</title>
+  <meta name="description" content="Explore mobile apps by Startup Business, including QR Scanner & Barcode Reader and Sortia: Ball Sort Puzzle.">
   <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --panel: rgba(20, 27, 48, 0.78);
+      --panel-strong: #171f36;
+      --text: #f8fafc;
+      --muted: #aeb9d2;
+      --line: rgba(255, 255, 255, 0.12);
+      --blue: #4f8cff;
+      --pink: #ff4fa3;
+      --green: #55e6b1;
+      --amber: #f9c74f;
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(79, 140, 255, 0.24), transparent 32rem),
+        radial-gradient(circle at 88% 12%, rgba(255, 79, 163, 0.18), transparent 30rem),
+        radial-gradient(circle at 50% 100%, rgba(85, 230, 177, 0.12), transparent 28rem),
+        linear-gradient(180deg, #10182d 0%, var(--bg) 48%, #070b14 100%);
+      min-height: 100vh;
     }
-    .container {
-      padding: 40px 20px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
+
+    .page {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 24px 18px 52px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+      box-shadow: 0 14px 34px rgba(79, 140, 255, 0.28);
+      font-weight: 950;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 58px 0 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .eyebrow span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 20px rgba(85, 230, 177, 0.72);
+    }
+
     h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+      margin: 18px 0 14px;
+      max-width: 760px;
+      font-size: clamp(40px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: 0;
     }
-    p {
-      color: #cbd5f5;
+
+    .hero p {
+      margin: 0;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: clamp(17px, 2.4vw, 21px);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      font-weight: 850;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--blue), #7c5cff);
+      color: white;
+      box-shadow: 0 18px 42px rgba(79, 140, 255, 0.25);
+    }
+
+    .button.ghost {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .stats {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 24px 0 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .app-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 0%, var(--card-glow), transparent 22rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .app-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-icon {
+      display: grid;
+      place-items: center;
+      width: 74px;
+      height: 74px;
+      border-radius: 8px;
+      background: var(--icon-bg);
+      box-shadow: 0 18px 42px var(--icon-shadow);
+      font-size: 34px;
+      font-weight: 950;
+    }
+
+    .app-card h3 {
+      margin: 22px 0 10px;
+      font-size: 30px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .app-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
       font-size: 16px;
     }
-    .btn {
-      display: inline-block;
-      margin: 15px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      background: #2563eb;
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 24px;
     }
-    .btn:hover {
-      background: #1d4ed8;
+
+    .pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
     }
-    .footer {
-      margin-top: 40px;
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 14px;
+    }
+
+    .legal-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .legal-link {
+      color: var(--muted);
       font-size: 14px;
-      color: #94a3b8;
+      font-weight: 750;
+    }
+
+    .legal-link:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .contact {
+      margin-top: 22px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .contact p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .apps {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .contact {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 18px 14px 38px;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .app-card {
+        min-height: 0;
+        padding: 20px;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark">SB</span>
+        <span>Startup Business</span>
+      </a>
+      <div class="nav-links">
+        <a href="#apps">Apps</a>
+        <a href="#contact">Contact</a>
+        <a href="/privacy-policy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </nav>
 
-  <div class="container">
-    <h1>QR Scanner & Barcode Reader</h1>
-    <p>Fast and easy app to scan QR codes and barcodes instantly.</p>
+    <header class="hero">
+      <div>
+        <div class="eyebrow"><span></span> Android apps by Startup Business</div>
+        <h1>Simple mobile tools and puzzle games built for everyday use.</h1>
+        <p>Explore fast, lightweight apps from Startup Business, including QR Scanner & Barcode Reader and Sortia: Ball Sort Puzzle.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#apps">View Apps</a>
+          <a class="button ghost" href="mailto:startupbusiness1404@gmail.com">Contact Us</a>
+        </div>
+      </div>
 
-    <a href="https://play.google.com/store/apps/details?id=com.startup.qrscanner" class="btn">Download App</a>
+      <div class="stats" aria-label="Publisher highlights">
+        <div class="stat">
+          <strong>2</strong>
+          <span>Published app experiences</span>
+        </div>
+        <div class="stat">
+          <strong>Fast</strong>
+          <span>Focused apps with clean interfaces</span>
+        </div>
+        <div class="stat">
+          <strong>2026</strong>
+          <span>Policies and terms kept ready for users</span>
+        </div>
+      </div>
+    </header>
 
-    <div>
-      <a href="/privacy-policy.html" class="btn">Privacy Policy</a>
-      <a href="/terms.html" class="btn">Terms & Conditions</a>
-    </div>
+    <section id="apps" aria-labelledby="apps-title">
+      <div class="section-head">
+        <div>
+          <h2 id="apps-title">Our Apps</h2>
+        </div>
+        <p>Download our apps from Google Play and review each app's privacy policy and terms.</p>
+      </div>
 
-    <div class="footer">
-      <p>Contact: startupbusiness1404@gmail.com</p>
-      <p>© 2026 Startup Business</p>
-    </div>
-  </div>
+      <div class="apps">
+        <article class="app-card" style="--card-glow: rgba(79, 140, 255, 0.24); --icon-bg: linear-gradient(135deg, #2563eb, #38bdf8); --icon-shadow: rgba(37, 99, 235, 0.28);">
+          <div class="app-content">
+            <div class="app-icon" aria-hidden="true">QR</div>
+            <h3>QR Scanner & Barcode Reader</h3>
+            <p>Fast and easy app to scan QR codes and barcodes instantly. Built for quick access, simple scanning, and everyday utility.</p>
+            <div class="features">
+              <span class="pill">QR scanning</span>
+              <span class="pill">Barcode reader</span>
+              <span class="pill">Fast utility</span>
+            </div>
+            <div class="card-actions">
+              <a class="button primary" href="https://play.google.com/store/apps/details?id=com.startup.qrscanner">Download App</a>
+            </div>
+            <div class="legal-row">
+              <a class="legal-link" href="/privacy-policy.html">Privacy Policy</a>
+              <a class="legal-link" href="/terms.html">Terms & Conditions</a>
+            </div>
+          </div>
+        </article>
 
+        <article class="app-card" style="--card-glow: rgba(255, 79, 163, 0.22); --icon-bg: linear-gradient(135deg, #ff4fa3, #7c5cff); --icon-shadow: rgba(255, 79, 163, 0.25);">
+          <div class="app-content">
+            <div class="app-icon" aria-hidden="true">S</div>
+            <h3>Sortia: Ball Sort Puzzle</h3>
+            <p>A colorful ball sorting puzzle game with levels, coins, rewarded ads, undo, retry, and extra move features.</p>
+            <div class="features">
+              <span class="pill">Puzzle game</span>
+              <span class="pill">Ball sorting</span>
+              <span class="pill">Rewarded coins</span>
+            </div>
+            <div class="card-actions">
+              <a class="button primary" href="https://play.google.com/store/apps/details?id=com.startup.sortia">Download App</a>
+            </div>
+            <div class="legal-row">
+              <a class="legal-link" href="/privacy-sortia.html">Privacy Policy</a>
+              <a class="legal-link" href="/terms-sortia.html">Terms & Conditions</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title" style="margin: 0;">Contact</h2>
+        <p>For support, policy questions, or app-related feedback.</p>
+      </div>
+      <a class="button ghost" href="mailto:startupbusiness1404@gmail.com">startupbusiness1404@gmail.com</a>
+    </section>
+
+    <footer>
+      <span>© 2026 Startup Business. All rights reserved.</span>
+      <span>Built for Android users.</span>
+    </footer>
+  </main>
 </body>
 </html>
