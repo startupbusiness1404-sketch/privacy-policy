@@ -1,21 +1,293 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Privacy Policy - Antigravity QR Scanner</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy | QR Scanner & Barcode Reader</title>
+  <meta name="description" content="Privacy Policy for QR Scanner & Barcode Reader by Startup Business.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f172a;
+      --panel: rgba(20, 28, 48, 0.86);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --line: rgba(255, 255, 255, 0.12);
+      --blue: #38bdf8;
+      --indigo: #2563eb;
+      --green: #22c55e;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.2), transparent 30rem),
+        radial-gradient(circle at 90% 12%, rgba(37, 99, 235, 0.22), transparent 28rem),
+        linear-gradient(180deg, #111c32 0%, var(--bg) 52%, #08111f 100%);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(100%, 960px);
+      margin: 0 auto;
+      padding: 34px 18px 54px;
+    }
+
+    .hero {
+      padding: 42px 0 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .badge span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2.4vw, 21px);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .meta-item {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .toc,
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 7px 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .toc a:hover {
+      color: var(--text);
+    }
+
+    .card {
+      padding: 26px;
+    }
+
+    section + section {
+      margin-top: 16px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .notice {
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      background: rgba(34, 197, 94, 0.08);
+      color: #dcfce7;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 24px 15px 42px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>Last updated: 25 February 2026</p>
+  <main class="page">
+    <header class="hero">
+      <div class="badge"><span></span> QR Scanner & Barcode Reader</div>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">This Privacy Policy explains how QR Scanner & Barcode Reader handles camera access, scanned data, advertising, and user privacy.</p>
+      <div class="meta">
+        <div class="meta-item">Effective date: May 1, 2026</div>
+        <div class="meta-item">App publisher: Startup Business</div>
+      </div>
+    </header>
 
-  <p>Antigravity QR Scanner does not collect, store, or share personal information.</p>
+    <div class="content">
+      <nav class="toc" aria-label="Privacy sections">
+        <strong>Contents</strong>
+        <a href="#overview">Overview</a>
+        <a href="#camera">Camera Permission</a>
+        <a href="#scans">Scanned Data</a>
+        <a href="#ads">Advertising</a>
+        <a href="#children">Children</a>
+        <a href="#security">Security</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-  <h2>Camera Permission</h2>
-  <p>The app uses the device camera only to scan QR codes. No images or data are stored or transmitted.</p>
+      <div>
+        <section id="overview" class="card">
+          <h2>1. Overview</h2>
+          <p>QR Scanner & Barcode Reader is designed to scan QR codes and barcodes quickly on your device.</p>
+          <p class="notice">The app does not require an account and does not ask you to submit personal information.</p>
+        </section>
 
-  <h2>Children’s Privacy</h2>
-  <p>This app does not knowingly collect personal information from children under 13.</p>
+        <section id="camera" class="card">
+          <h2>2. Camera Permission</h2>
+          <p>The app requests camera permission only so it can scan QR codes and barcodes. Camera access is used for real-time scanning on your device.</p>
+          <p>The app does not use the camera to record videos, take photos for storage, or transmit camera images to our servers.</p>
+        </section>
 
-  <h2>Contact</h2>
-  <p>Email: your-email@example.com</p>
+        <section id="scans" class="card">
+          <h2>3. Scanned Data</h2>
+          <p>QR codes and barcodes may contain text, links, contact details, Wi-Fi information, product codes, or other data created by third parties.</p>
+          <ul>
+            <li>Scanned content is processed to show scan results inside the app.</li>
+            <li>We do not collect or sell scanned QR or barcode content.</li>
+            <li>If the app includes scan history, that history is stored locally on your device unless you delete it or clear app data.</li>
+          </ul>
+        </section>
+
+        <section id="ads" class="card">
+          <h2>4. Advertising and Third-Party Services</h2>
+          <p>The app may use Google AdMob or similar advertising services to show ads. These services may collect device identifiers, approximate location, app interactions, diagnostics, and advertising data according to their own policies.</p>
+          <p>You can learn more about Google's advertising data practices at <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
+        </section>
+
+        <section id="children" class="card">
+          <h2>5. Children's Privacy</h2>
+          <p>We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information through the app, please contact us so we can review the concern.</p>
+        </section>
+
+        <section id="security" class="card">
+          <h2>6. Data Security</h2>
+          <p>We use reasonable care to keep the app experience reliable. However, no digital service can be guaranteed to be completely secure.</p>
+        </section>
+
+        <section id="updates" class="card">
+          <h2>7. Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time. Updates will be posted on this page with a new effective date.</p>
+        </section>
+
+        <section id="contact" class="card">
+          <h2>8. Contact Us</h2>
+          <p>If you have questions about this Privacy Policy, contact us at <a href="mailto:startupbusiness1404@gmail.com">startupbusiness1404@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+          © 2026 Startup Business. All rights reserved.
+        </footer>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
